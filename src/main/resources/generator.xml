@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 生成文件的包名 固定-->
+	<entry key="basepackage">com.rongke</entry>
+	
+	<!-- dao,service,model生成到此D盘目录下 -->
+	<entry key="outRoot">d:/_rk</entry>
+	
+	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
+	<entry key="tableRemovePrefixes"></entry>
+	<!-- oracle需要指定jdbc.schema,并且可能要大写，其它数据库忽略此项配置  -->
+	<entry key="jdbc.schema"></entry>
+	<entry key="jdbc.catalog"></entry>
+	
+	<!-- 数据库类型至java类型映射  -->
+	<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>
+	<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>
+	<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>	
+	<entry key="java_typemapping.java.lang.Byte">java.lang.Integer</entry>
+	<entry key="java_typemapping.java.lang.Short">java.lang.Integer</entry>
+	<entry key="java_typemapping.java.math.BigDecimal">java.math.BigDecimal</entry>
+	<entry key="java_typemapping.java.sql.Clob">java.lang.String</entry>
+
+	<!-- Mysql 连接信息-->
+	<!--<entry key="jdbc.url">jdbc:mysql://139.224.190.8:3306/hsei_industrialdata_db?useUnicode=true&amp;characterEncoding=UTF-8</entry>-->
+	<!--<entry key="jdbc.url">jdbc:mysql://139.224.42.24:3306/fangjianbao?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
+	<entry key="jdbc.username">mifan</entry>
+	<entry key="jdbc.password">Mifan1983</entry>-->
+	<entry key="jdbc.url">jdbc:mysql://116.62.161.236:3306/miduoduo?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
+	<entry key="jdbc.username">root</entry>
+	<entry key="jdbc.password">Mifan1983</entry>
+	 
+</properties>

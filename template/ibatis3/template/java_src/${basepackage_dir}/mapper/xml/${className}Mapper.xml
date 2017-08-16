@@ -1,0 +1,39 @@
+<#assign className = table.className>
+<#assign tableName = table.sqlName>
+<#assign classNameLower = className?uncap_first>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${basepackage}.mapper.${className}Mapper">
+
+    <resultMap type="${basepackage}.model.${className}" id="m${className}">
+        <#list table.columns as column>
+        <#if column.columnNameLower=='id'>
+        <id property="id" column="${className}_id" />
+        <#else>
+        <result property="${column.columnNameLower}" column="${className}_${column.columnNameLower}"/>
+        </#if>
+        </#list>
+
+        <#list table.columns as column>
+        <#if column.fk>
+        <#assign fkTableName = column.fkTableName>
+        <#assign columnNameTwo = column.columnNameLower?substring(0,column.columnNameLower?length-2)>
+        <association property="${columnNameTwo}" javaType="${basepackage}.model.${fkTableName}" >
+            <id property="id" column="${className}_${column.columnNameLower}" />
+        </association>
+        </#if>
+        </#list>
+    </resultMap>
+
+    <sql id="m${className}PkSql">
+    <#list table.columns as column>
+        ${tableName}.${column.sqlName} AS ${className}_${column.columnNameLower}<#if column_has_next>,</#if>
+    </#list>
+    </sql>
+
+    <sql id="m${className}Sql">
+    <#list table.columns as column>
+        ${column.sqlName} AS ${column.columnNameLower}<#if column_has_next>,</#if>
+    </#list>
+    </sql>
+</mapper>
