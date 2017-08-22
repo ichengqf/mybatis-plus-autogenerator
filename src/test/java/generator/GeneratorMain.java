@@ -63,8 +63,8 @@ public class GeneratorMain {
 	public static void main(String[] args) throws Exception {
 		g.deleteOutRootDir(); // 清空目录
 
-//		String [] table_names = new String[]{"system_log", "system_user"};
-//		String [] table_names = new String[]{"exp_rec_comment"};
+//		String [] table_names = new String[]{"classify_y", "classify"};
+//		String [] table_names = new String[]{"sku"};
 //		generateByTable(table_names); //按表名生成
 		
 		generateByAllTable();//生成全部表

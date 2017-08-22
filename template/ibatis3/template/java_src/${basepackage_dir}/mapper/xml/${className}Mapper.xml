@@ -5,6 +5,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${basepackage}.mapper.${className}Mapper">
 
+
+    <resultMap type="${basepackage}.model.${className}" id="rm${className}">
+        <#list table.columns as column>
+        <#if column.columnNameLower=='id'>
+        <id property="id" column="id" />
+        <#else>
+        <result property="${column.columnNameLower}" column="${column.columnNameLower}"/>
+        </#if>
+        </#list>
+
+        <#list table.columns as column>
+        <#if column.fk>
+        <#assign fkTableName = column.fkTableName>
+        <#assign columnNameTwo = column.columnNameLower?substring(0,column.columnNameLower?length-2)>
+        <association property="${columnNameTwo}" javaType="${basepackage}.model.${fkTableName}" >
+            <id property="id" column="${className}_${column.columnNameLower}" />
+        </association>
+        </#if>
+        </#list>
+    </resultMap>
+
     <resultMap type="${basepackage}.model.${className}" id="m${className}">
         <#list table.columns as column>
         <#if column.columnNameLower=='id'>
@@ -36,4 +57,17 @@
         ${column.sqlName} AS ${column.columnNameLower}<#if column_has_next>,</#if>
     </#list>
     </sql>
-</mapper>
+
+    <select id="selectByCondition" parameterType="${className}" resultMap="rm${className}">
+    select
+    <include refid="m${className}Sql"></include>
+    from ${tableName}
+    <where>
+    <#list table.columns as column>
+        ${"<"}if test="${column.columnNameLower}!= null">
+            AND ${column.sqlName}=${r"#"}{${column.columnNameLower}}
+        ${"<"}/if>
+    </#list>
+    </where>
+    </select>
+    </mapper>

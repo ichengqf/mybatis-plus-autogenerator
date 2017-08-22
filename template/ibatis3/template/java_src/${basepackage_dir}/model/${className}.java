@@ -51,7 +51,7 @@ public class ${className} implements Serializable {
 	@JsonSerialize(using=DateJsonSerializer.class)
 	@JsonDeserialize(using=DateJsonDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss" )
-	private ${column.javaType} ${column.columnNameLower} = new ${column.javaType}();
+	private ${column.javaType} ${column.columnNameLower};
 	<#elseif column.columnNameLower=='uptDatetime'>
 	/**
 	 * @备注:${column.remarks}
@@ -60,7 +60,7 @@ public class ${className} implements Serializable {
 	@JsonSerialize(using=DateJsonSerializer.class)
 	@JsonDeserialize(using=DateJsonDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss" )
-	private ${column.javaType} ${column.columnNameLower} = new ${column.javaType}();
+	private ${column.javaType} ${column.columnNameLower} ;
 	<#elseif column.fk>
 	<#assign fkTableName = column.fkTableName>
 	<#assign columnNameTwo = column.columnNameLower?substring(0,column.columnNameLower?length-2)>
