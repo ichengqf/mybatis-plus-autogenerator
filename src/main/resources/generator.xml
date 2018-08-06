@@ -18,8 +18,8 @@
 	<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>
 	<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>
 	<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>	
-	<entry key="java_typemapping.java.lang.Byte">java.lang.Integer</entry>
-	<entry key="java_typemapping.java.lang.Short">java.lang.Integer</entry>
+	<entry key="java_typemapping.java.lang.Byte">java.lang.Byte</entry>
+	<entry key="java_typemapping.java.lang.Short">java.lang.Short</entry>
 	<entry key="java_typemapping.java.math.BigDecimal">java.math.BigDecimal</entry>
 	<entry key="java_typemapping.java.sql.Clob">java.lang.String</entry>
 
