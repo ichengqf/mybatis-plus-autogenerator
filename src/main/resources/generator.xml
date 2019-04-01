@@ -3,7 +3,7 @@
 <properties>
 
 	<!-- 生成文件的包名 固定-->
-	<entry key="basepackage">com.rongke</entry>
+	<entry key="basepackage">com.csvw.sx.ss.cccmaster</entry>
 	
 	<!-- dao,service,model生成到此D盘目录下 -->
 	<entry key="outRoot">d:/_rk</entry>
@@ -22,16 +22,23 @@
 	<entry key="java_typemapping.java.lang.Short">java.lang.Short</entry>
 	<entry key="java_typemapping.java.math.BigDecimal">java.math.BigDecimal</entry>
 	<entry key="java_typemapping.java.sql.Clob">java.lang.String</entry>
+	<entry key="java_typemapping.java.sql.Bigint">java.lang.Long</entry>
 
 	<!-- Mysql 连接信息-->
 	<!--<entry key="jdbc.url">jdbc:mysql://139.224.190.8:3306/hsei_industrialdata_db?useUnicode=true&amp;characterEncoding=UTF-8</entry>-->
 	<!--<entry key="jdbc.url">jdbc:mysql://139.224.42.24:3306/fangjianbao?useUnicode=true&amp;characterEncoding=UTF-8</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 	<entry key="jdbc.username">mifan</entry>
-	<entry key="jdbc.password">Mifan1983</entry>-->
-	<entry key="jdbc.url">jdbc:mysql://116.62.161.236:3306/miduoduo?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.password">Mifan1983</entry>
+	<entry key="jdbc.url">jdbc:mysql://rm-uf608f0o4xu96q2khlo.mysql.rds.aliyuncs.com:3306/ss_carconfig_dev?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
+	<entry key="jdbc.username">ss_dev</entry>
+	<entry key="jdbc.password">BIE4_97B</entry>
+	<entry key="jdbc.url">jdbc:mysql://192.168.40.12:3306/ss_car_config_local?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	-->
+	<entry key="jdbc.url">jdbc:mysql://192.168.40.12:3306/ss_car_master_local?useUnicode=true&amp;characterEncoding=UTF-8</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 	<entry key="jdbc.username">root</entry>
-	<entry key="jdbc.password">Mifan1983</entry>
+	<entry key="jdbc.password">Q!w2zxcv</entry>
 	 
 </properties>

@@ -3,19 +3,23 @@
 <#assign tableRemarks = table.remarks>
 package ${basepackage}.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ${basepackage}.mapper.${className}Mapper;
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 import ${basepackage}.service.${className}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @${className}ServiceImpl
- * @${tableRemarks}ServiceImpl
- * @version : Ver 1.0
+/***
+ * ${tableRemarks}ServiceImpl
+ * 
+ * <p>
+ * SVW SX Copyright (C) SAIC VOLKSWAGEN, All rights reserved.
+ * 
+ * @author svwsx
+ * @date 2019-03-28 13:14
  */
 @Service
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements ${className}Service {

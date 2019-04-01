@@ -3,28 +3,31 @@
 <#assign tableName = table.sqlName>
 <#assign tableRemarks = table.remarks>
 <#assign classNameLower = className?uncap_first> 
-package ${basepackage}.model;
+package ${basepackage}.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import ${basepackage}.utils.DateJsonDeserializer;
-import ${basepackage}.utils.DateJsonSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 
-/**
- * @${className}
- * @${tableRemarks}(${tableName})
- * @version : Ver 1.0
+/***
+ * ${tableRemarks}(${tableName})
+ * 
+ * <p>
+ * SVW SX Copyright (C) SAIC VOLKSWAGEN, All rights reserved.
+ * 
+ * @author svwsx
+ * @date 2019-03-28 13:14
  */
 @TableName("${tableName}")
-public class ${className} implements Serializable {
+public class ${className} extends Model<${className}> implements Serializable {
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;
 	<#list table.columns as column>
@@ -51,6 +54,7 @@ public class ${className} implements Serializable {
 	@JsonSerialize(using=DateJsonSerializer.class)
 	@JsonDeserialize(using=DateJsonDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss" )
+	@TableField("${column.sqlName}")
 	private ${column.javaType} ${column.columnNameLower};
 	<#elseif column.columnNameLower=='uptDatetime'>
 	/**
@@ -60,6 +64,7 @@ public class ${className} implements Serializable {
 	@JsonSerialize(using=DateJsonSerializer.class)
 	@JsonDeserialize(using=DateJsonDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss" )
+	@TableField("${column.sqlName}")
 	private ${column.javaType} ${column.columnNameLower} ;
 	<#elseif column.fk>
 	<#assign fkTableName = column.fkTableName>
@@ -68,6 +73,7 @@ public class ${className} implements Serializable {
 	 * @备注:${column.remarks}
 	 * @字段:${column.sqlName} ${column.sqlTypeName}(${column.size})
 	 */
+	@TableField("${column.sqlName}")
 	private ${column.javaType} ${column.columnNameLower};
 	/**
 	 * 备注:${column.remarks}
@@ -79,6 +85,7 @@ public class ${className} implements Serializable {
 	 * @备注:${column.remarks}
 	 * @字段:${column.sqlName} ${column.sqlTypeName}(${column.size})
 	 */
+	@TableField("${column.sqlName}")
 	private ${column.javaType} ${column.columnNameLower};
 	</#if>
 

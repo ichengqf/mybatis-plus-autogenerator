@@ -6,7 +6,7 @@ package ${basepackage}.web.api;
 
 import ${basepackage}.commons.JsonResp;
 import ${basepackage}.mapper.${className}Mapper;
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 import ${basepackage}.service.${className}Service;
 
 import org.apache.log4j.Logger;

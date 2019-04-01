@@ -6,7 +6,7 @@
 <mapper namespace="${basepackage}.mapper.${className}Mapper">
 
 
-    <resultMap type="${basepackage}.model.${className}" id="rm${className}">
+    <resultMap type="${basepackage}.entity.${className}" id="rm${className}">
         <#list table.columns as column>
         <#if column.columnNameLower=='id'>
         <id property="id" column="id" />
@@ -19,14 +19,14 @@
         <#if column.fk>
         <#assign fkTableName = column.fkTableName>
         <#assign columnNameTwo = column.columnNameLower?substring(0,column.columnNameLower?length-2)>
-        <association property="${columnNameTwo}" javaType="${basepackage}.model.${fkTableName}" >
+        <association property="${columnNameTwo}" javaType="${basepackage}.entity.${fkTableName}" >
             <id property="id" column="${className}_${column.columnNameLower}" />
         </association>
         </#if>
         </#list>
     </resultMap>
 
-    <resultMap type="${basepackage}.model.${className}" id="m${className}">
+    <resultMap type="${basepackage}.entity.${className}" id="m${className}">
         <#list table.columns as column>
         <#if column.columnNameLower=='id'>
         <id property="id" column="${className}_id" />
@@ -39,7 +39,7 @@
         <#if column.fk>
         <#assign fkTableName = column.fkTableName>
         <#assign columnNameTwo = column.columnNameLower?substring(0,column.columnNameLower?length-2)>
-        <association property="${columnNameTwo}" javaType="${basepackage}.model.${fkTableName}" >
+        <association property="${columnNameTwo}" javaType="${basepackage}.entity.${fkTableName}" >
             <id property="id" column="${className}_${column.columnNameLower}" />
         </association>
         </#if>
